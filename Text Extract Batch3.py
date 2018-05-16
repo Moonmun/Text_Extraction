@@ -71,6 +71,12 @@ def startProcessing(target_dir, source_dir):
        # im = enhancer.enhance(2)
        # im = im.convert('1')
         result= pytesseract.image_to_string(im.rotate(360-getRotation(target_dir+"/Image_split_output/"+files)))
+
+            
+        if result== '':
+            
+            result = "No Text in this Image"
+        
         z= removePunctuation(result)
         write_result(source_dir, files, z) 
 
